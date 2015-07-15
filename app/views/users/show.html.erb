@@ -1,0 +1,7 @@
+<h1>Welcome, <%= @user.fname %>!</h1>
+
+<h2>Your Balance is $<%= @user.balance %> </h2>
+
+<h2> <%= link_to 'My Cards', user_cards_path(@user) %> </h2>
+
+<h2> <%= link_to 'Edit my profile', edit_user_path%> </h2>

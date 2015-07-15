@@ -1,0 +1,17 @@
+<h1> Sign up </h2>
+
+<% if @card.errors.full_messages.any? %>
+  <ul>
+    <% @card.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @card do |f| %>
+  <%= f.text_field :number, {placeholder: 'Card Number'} %>
+  <%= f.select :exp_month, (1..12) %>
+ <%= f.select :exp_year, (2015..2030) %>
+
+  <%= f.submit :Submit, class: "form_button"%>
+<% end %>

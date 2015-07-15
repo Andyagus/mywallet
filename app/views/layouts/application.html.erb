@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wallet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if current_user %>
+   <%= link_to( 'Log Out', '/logout', method: :get) %>
+<% else %> 
+   <%= form_tag('/login', method: :post) do |f| %>
+    
+   
+    <p><%= email_field_tag :email  %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Log in", :style => 'width: 60px' %><p>
+    </div>
+
+<% end %>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

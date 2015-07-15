@@ -1,0 +1,10 @@
+<h1> Welcome to Pocket </h1>
+
+<% @users.each do |user| %>
+ <%= "#{user.fname} #{user.lname}" %>
+
+<% end %>
+
+<p><b><%= link_to "Don't have an account?", new_user_path %></b><p>
+
+  

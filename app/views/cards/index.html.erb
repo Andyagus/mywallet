@@ -1,0 +1,17 @@
+<h1> What's in your wallet? </h1>
+
+   <div class="card">
+<% @cards.each do |card| %>
+   <ul class='card-attributes'>
+        <li> <%= card.card_type %> </li>
+     <li>  <p> Experation Date: </p>  <%= card.exp_month %>, <%= card.exp_year %> </li>
+      </ul>
+   </div>
+<% end %>
+
+<% if @user == current_user %>
+   <%= link_to( 'Add New Card', new_user_card_path) %>
+   <% else %>
+   <p> this is not your page </p>
+
+<% end %>
