@@ -1,10 +1,13 @@
 <h1> Welcome to Pocket </h1>
 
-<% @users.each do |user| %>
- <%= "#{user.fname} #{user.lname}" %>
 
-<% end %>
+<%= form_tag('/login', method: :post) do |f| %>
+      
+     
+      <p><%= email_field_tag :email  %>
+         <%= password_field_tag :password %>
+         <%= submit_tag "Log in", :style => 'width: 60px' %><p>
 
-<p><b><%= link_to "Don't have an account?", new_user_path %></b><p>
+   <%end %>
 
-  
+   <p><%= link_to "Don't have an account?", new_user_path %><p>

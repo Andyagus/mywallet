@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+   
+   $("body").click(function(){
+      
+      $(".ball").fadeOut(3000);
+
+   });
+
+});
+

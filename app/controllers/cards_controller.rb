@@ -19,16 +19,24 @@ class CardsController < ApplicationController
     if @card.valid?
       @card.save!
       flash[:notice] = "Card entry successful!"
-      redirect_to :back
+      redirect_to user_cards_path(current_user)
     else
       flash[:alert] = "Something went wrong, check errors below"
       render :new
     end
   end
 
-
+ def destroy
+    @card = Card.find(params[:id]).destroy
+    @card.destroy
+    redirect_to user_cards_path
+end
 
    def show
+   end
+
+   def admin
+    @cards = Cards.all
    end
 
 def card_params

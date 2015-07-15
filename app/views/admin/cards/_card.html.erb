@@ -1,0 +1,9 @@
+<% @cards.each do |card| %>
+   <div class="card">
+      <ul class='card-attributes'>
+           <li> <%= card.card_type %> </li>
+        <li>  <p> Experation Date: </p>  <%= card.exp_month %>, <%= card.exp_year %> </li>
+         </ul>
+      </div>
+   </div>
+<% end %>

@@ -1,13 +1,23 @@
 <h1> What's in your wallet? </h1>
 
-   <div class="card">
+<div id='cards'>
 <% @cards.each do |card| %>
+  <div class="card">
    <ul class='card-attributes'>
         <li> <%= card.card_type %> </li>
      <li>  <p> Experation Date: </p>  <%= card.exp_month %>, <%= card.exp_year %> </li>
       </ul>
    </div>
+
+    <% if @user == current_user %>
+          <%= link_to( 'DELETE CARD', user_card_path(@user, card), method: :delete, data: { confirm: "You sure?" }) %>
+       <% else %>
 <% end %>
+
+<% end %>
+</div>
+
+
 
 <% if @user == current_user %>
    <%= link_to( 'Add New Card', new_user_card_path) %>

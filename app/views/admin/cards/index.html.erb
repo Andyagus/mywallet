@@ -1,0 +1,15 @@
+<h3> All of users card </h3>
+<% @cards.each do |card| %>
+   <div class="card">
+      <ul class='card-attributes'>
+        <li> <%= card.card_type %> </li>
+        <li>  
+        <p> Experation Date: </p>  <%= card.exp_month %>, <%= card.exp_year %> 
+        </li>
+      </ul>
+      </div>
+   </div>
+
+   <%= link_to "Delete", admin_card_path(card), method: :delete %>
+
+<%end%>   

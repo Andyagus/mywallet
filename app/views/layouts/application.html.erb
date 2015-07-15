@@ -5,24 +5,31 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<% if current_user %>
-   <%= link_to( 'Log Out', '/logout', method: :get) %>
-<% else %> 
-   <%= form_tag('/login', method: :post) do |f| %>
-    
-   
-    <p><%= email_field_tag :email  %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Log in", :style => 'width: 60px' %><p>
-    </div>
+<div id = "nav">
+  <% if current_user %>
+    <%= link_to "Your Profile", user_path(current_user) %>
 
-<% end %>
-<% end %>
+     <%= link_to( 'Log Out', '/logout', method: :get) %>
+  <% else %> 
+     <%= form_tag('/login', method: :post) do |f| %>
+      
+     
+      <p><%= email_field_tag :email  %>
+      <%= password_field_tag :password %>
+      <%= submit_tag "Log in", :style => 'width: 60px' %><p>
+      </div>
 
+  <% end %>
+</div>  
+  <% end %>
+
+<div id = "wrapper">
 <%= yield %>
+</div>
 
 </body>
 </html>

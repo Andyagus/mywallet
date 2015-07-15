@@ -3,14 +3,16 @@ Rails.application.routes.draw do
   resources :cards
   
   resources :users do
-      resources :cards
+      resources :cards 
   end 
 
   namespace :admin do
-      resources :sessions
+    resources :sessions, only: [:create, :new, :destroy]
+    resources :cards, only: [:index, :destroy]
   end
 
   get '/logout', to: 'sessions#destroy'
   post '/login', to: 'sessions#create'
   root 'users#index'
+
 end
