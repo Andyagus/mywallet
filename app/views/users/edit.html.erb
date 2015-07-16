@@ -1,5 +1,7 @@
 <h1> Edit your profile </h2>
 
+<%= user.full_name %>
+
 <% if @user.errors.full_messages.any? %>
   <ul>
     <% @user.errors.full_messages.each do |msg| %>

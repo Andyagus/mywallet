@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
    has_many :userswallets
    has_many :cards, through: :userswallets
 
+   def full_name
+      fname +''+lname
+   end
+
 end
