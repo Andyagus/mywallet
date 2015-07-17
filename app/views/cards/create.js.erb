@@ -1,0 +1,1 @@
+$('body').html(' <%=current_user.fname%> , Your card <%=@card.number%> has been created  <br> <%= link_to "You can view it here", user_cards_path(current_user, @card) %> ' );

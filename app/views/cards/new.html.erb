@@ -9,10 +9,15 @@
   </ul>
 <% end %>
 
-<%= form_for @card do |f| %>
+<div id='client-side-error'> </div>
+
+<%= form_for @card, remote: true do |f| %>
   <%= f.text_field :number, {placeholder: 'Card Number'} %>
+
   <%= f.select :exp_month, (1..12) %>
  <%= f.select :exp_year, (2015..2030) %>
 
-  <%= f.submit :Submit, class: "form_button"%>
+  <%= f.number_field :balance %>
+
+  <%= f.submit :Submit, id: "new_card", data: {disable_with:"submitting…"} %>
 <% end %>

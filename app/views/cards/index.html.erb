@@ -1,31 +1,35 @@
-<h1> What's in your pocket? </h1>
+  <div id = "innerwrapper">
+  <h1> What's in your pocket? </h1> 
 
-<div id='cards'>
-<% @cards.each do |card| %>
-  <div class="<%= "card #{card.card_type.downcase.gsub(/\s/,'')}"%>" >
-   <div class='card-attributes'>
-        <div class = "card-username">
-          <%= @user.fname %>  
-        </div>  
-          <div class = "card-number"
-            <li> <%= card.number %> 
-          </div>
-   </div>
-  </div>
-    <% if @user == current_user %>
-          <div > <%= link_to( '', user_card_path(@user, card), method: :delete, data: { confirm: "Do you want to delete?" }, class: "delete-card") %>
-          </div>
-       <% else %>
-<% end %>
+    <div id='cards'>
+    <% @cards.each do |card| %>
+      <div class='card-wrapper'>
+        <div class="<%= "card #{card.card_type.downcase.gsub(/\s/,'')}"%>" >
+         <div class='card-attributes'>
+              <div class = "card-username">
+                <%= @user.full_name %>  
+              </div>  
+                <div class = "card-number"
+                  <li> <%= card.number %> </li>
+                </div>
+         </div>
+      </div>
+        <% if @user == current_user %>
+              <div > <%= link_to( special_x, user_card_path(@user, card), method: :delete, remote: true, class: "delete-card",  data: { confirm: "Do you want to delete?" }) %>
+              </div>
+            </div>
+<!-- FIX THE FADE OUT! -->
+           <% else %>
+  <% end %>
 
-<% end %>
-</div>
-
-<div class = "clear"> </div>
+  <% end %>
 
 <% if @user == current_user %>
    <%= link_to( 'Add New Card', new_user_card_path) %>
    <% else %>
    <p> this is not your page </p>
+
+<div class = "clear"> </div>
+</div>
 
 <% end %>

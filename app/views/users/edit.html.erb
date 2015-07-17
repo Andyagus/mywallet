@@ -1,6 +1,6 @@
-<h1> Edit your profile </h2>
+<h1> Edit your profile </h1>
 
-<%= user.full_name %>
+<%= @user.full_name %>
 
 <% if @user.errors.full_messages.any? %>
   <ul>
@@ -20,4 +20,11 @@
 
   <%= f.number_field :balance, {placeholder: 'Account Balance'} %>
   <%= f.submit :Submit, class: "form_button"%>
+<% end %>
+
+<h1> Add Avatar </h1>
+  <%= form_for @user, :url => users_path,
+:html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+
 <% end %>

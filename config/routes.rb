@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :cards, only: [:index, :destroy]
   end
 
+  get '/ajax-link-test' => 'users#ajax_test', as: 'ajax_link'
+
   get '/logout', to: 'sessions#destroy'
   post '/login', to: 'sessions#create'
   root 'users#index'

@@ -9,27 +9,30 @@
 </head>
 <body>
 
-<div id = "nav">
+
+
+
+<nav>
+  <ul> 
   <% if current_user %>
-    <%= link_to "Your Profile", user_path(current_user) %>
-
-     <%= link_to( 'Log Out', '/logout', method: :get) %>
+    <li> <%= link_to "Your Pocket", user_path(current_user) %> </li>
+    <li>  <%= link_to( 'Log Out', '/logout', method: :get) %> </li>
   <% else %> 
-     <%= form_tag('/login', method: :post) do |f| %>
-      
-     
-      <p><%= email_field_tag :email  %>
-      <%= password_field_tag :password %>
-      <%= submit_tag "Log in", :style => 'width: 60px' %><p>
-      </div>
-
+    <li> <%= form_tag('/login', method: :post) do |f| %> </li>
+    <li> <p><%= email_field_tag :email  %> </li>
+    <li> <%= password_field_tag :password %> </li>
+    <li>  <%= submit_tag "Log in", :style => 'width: 60px' %><p> </li>
+  </ul> 
   <% end %>
-</div>  
   <% end %>
+</nav>
 
-<div id = "wrapper">
+
+ <div id = "wrapper">
+
 <%= yield %>
 </div>
+
 
 </body>
 </html>

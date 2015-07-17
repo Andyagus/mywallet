@@ -5,16 +5,37 @@
 #cards {
    width: 450px;
    margin: 0 auto;
-   background-color: yellow;
+   padding-left: 70px;
 }
 
 
-.delete-card {
-   width: 40px;
-   height: 40px;
-   background-image:url("../delete.svg");
+svg {
+   width: 20.32%;
    float: left;
-   margin-left: 40px;
+}
+
+
+
+.x-bg {
+   transition: .3s ease-out;
+   stroke: #FDC010;
+   stroke-width:0px;
+   
+}
+
+.x-bg:hover{
+   fill: #2D5977;
+   stroke-width:5px;
+}
+
+.x-icon {
+   transition: transform .4s ease-out;
+   transform-origin: 50% 50%;
+}
+
+
+.x:hover .x-icon {
+   transform: rotate(90deg) scale(1.3);
 }
 
 .amex {

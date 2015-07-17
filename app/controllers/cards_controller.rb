@@ -9,21 +9,30 @@ class CardsController < ApplicationController
   end
 
    def new
+    @user = User.find params[:user_id]
     @card = Card.new
+ 
    end
 
    def create  
     @card = Card.new(card_params)
-    @card.users << current_user
 
-    if @card.valid?
-      @card.save!
-      flash[:notice] = "Card entry successful!"
-      redirect_to user_cards_path(current_user)
-    else
-      flash[:alert] = "Something went wrong, check errors below"
-      render :new
+    @card.users << current_user
+    @card.save!
+
+    respond_to do |format|
+      format.js do
+      end
+
     end
+
+    # if @card.valid?
+    #   flash[:notice] = "Card entry successful!"
+    #   redirect_to user_cards_path(current_user)
+    # else
+    #   flash[:alert] = "Something went wrong, check errors below"
+    #   render :new
+    # end
   end
 
  def destroy
@@ -40,7 +49,7 @@ end
    end
 
 def card_params
-   params.require(:card).permit(:number, :exp_year, :exp_month, :type, :user_id)
+   params.require(:card).permit(:number, :exp_year, :exp_month, :type, :balance, :user_id)
 end
 
 end
